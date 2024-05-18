@@ -3,16 +3,16 @@
 FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
 
 # Expose the port your application listens on
-EXPOSE 80
+EXPOSE 8080
 
 # Copy the published application from the host machine to the container
-COPY bin/Release/net7.0/publish .
+COPY bin/Release/net7.0/publish /urs/app
 
 # Set the working directory inside the container
 WORKDIR /usr/app
 
 # Command to run the application
-ENTRYPOINT ["dotnet", "YourProjectName.dll"]
+ENTRYPOINT ["dotnet", "backend.dll"]
 
 # ================= JAVA MAVAEN ==================
 # FROM amazoncorretto:8-alpine3.17-jre
