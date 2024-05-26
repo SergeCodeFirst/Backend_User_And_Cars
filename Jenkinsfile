@@ -9,8 +9,7 @@ pipeline {
                 }
             }
         }
-    }
-    stages {
+        
         stage ("build") {
             steps {
                 script {
@@ -18,8 +17,7 @@ pipeline {
                 }
             }
         }
-    }
-    stages {
+        
         stage ("deploy") {
             steps {
                 script {
