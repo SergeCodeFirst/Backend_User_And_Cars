@@ -7,7 +7,8 @@ def buildApp() {
 }
 
 def deployApp() {
-    echo "deploying the .net app"
+    echo "deploying the .net app..."
+    echo "deploying the .net app version ${params.VERSION}"
 }
 
 return this
