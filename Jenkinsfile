@@ -1,10 +1,11 @@
 #!/user/bin/env groovy
-library identifier: 'jenkins-shared-library_UserAndCars@main', retriever: modernSCM(
-    [$class: 'GitSCMSource',
-    remote: 'https://github.com/SergeCodeFirst/jenkins-shared-library_UserAndCars.git',
-    credentialsId: 'github-credentials'
-    ])
-// @Library('jenkins-shared-library_UserAndCars')_
+// library identifier: 'jenkins-shared-library_UserAndCars@main', retriever: modernSCM(
+//     [$class: 'GitSCMSource',
+//     remote: 'https://github.com/SergeCodeFirst/jenkins-shared-library_UserAndCars.git',
+//     credentialsId: 'github-credentials'
+//     ])
+
+@Library('jenkins-shared-library_UserAndCars')_
 
 pipeline {
     agent any
