@@ -2,48 +2,48 @@
 // With everything in jenkins
 // =================================
 
-pipeline {
-    agent any
+// pipeline {
+//     agent any
     
-    tools {
-        dotnetsdk 'dotnet-7.0'
-        // maven 'maven-3.0'
-        // nodejs 'node-14.0'
-        // python 'Python-3.8'
-    }
+//     tools {
+//         dotnetsdk 'dotnet-7.0'
+//         // maven 'maven-3.0'
+//         // nodejs 'node-14.0'
+//         // python 'Python-3.8'
+//     }
     
-    stages {
-        stage ("build dotnet artifcat") {
-            steps {
-                script {
-                    echo 'building a dotnet artifact...'
-                    sh 'dotnet restore'
-                    sh 'dotnet publish -c Release'
-                }
-            }
-        }
-        stage ("build docker Image") {
-            steps {
-                script {
-                    echo 'build docker Image using artifact...'
-                    withCredentials([usernamePassword(credentialsId: 'docker-hub-repo', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
-                        sh 'docker build -t sergevismok/demo-app:dotnet-app-2.0 .'
-                        sh 'echo $PASS | docker login -u $USER --password-stdin'
-                        sh 'docker push sergevismok/demo-app:dotnet-app-2.0'
-                    }
-                }
-            }
-        }
+//     stages {
+//         stage ("build dotnet artifcat") {
+//             steps {
+//                 script {
+//                     echo 'building a dotnet artifact...'
+//                     sh 'dotnet restore'
+//                     sh 'dotnet publish -c Release'
+//                 }
+//             }
+//         }
+//         stage ("build docker Image") {
+//             steps {
+//                 script {
+//                     echo 'build docker Image using artifact...'
+//                     withCredentials([usernamePassword(credentialsId: 'docker-hub-repo', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
+//                         sh 'docker build -t sergevismok/demo-app:dotnet-app-2.0 .'
+//                         sh 'echo $PASS | docker login -u $USER --password-stdin'
+//                         sh 'docker push sergevismok/demo-app:dotnet-app-2.0'
+//                     }
+//                 }
+//             }
+//         }
         
-        stage ("deploy") {
-            steps {
-                script {
-                    echo 'deploying the application...'
-                }
-            }
-        }
-    }
-}
+//         stage ("deploy") {
+//             steps {
+//                 script {
+//                     echo 'deploying the application...'
+//                 }
+//             }
+//         }
+//     }
+// }
 
 
 
