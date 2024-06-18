@@ -1,5 +1,4 @@
 #!/user/bin/env groovy
-@Library('jenkins-shared-library') // global import from jenkins (we add it there in a global library)
 library identifier: 'jenkins-shared-library_UserAndCars@main', retriever: modernSCM(
     [$class: 'GitSCMSource',
     remote: 'https://github.com/SergeCodeFirst/jenkins-shared-library_UserAndCars.git',
