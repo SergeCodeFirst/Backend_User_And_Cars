@@ -1,6 +1,11 @@
 #!/user/bin/env groovy
-
-@Library('jenkins-shared-library_UserAndCars')_
+@Library('jenkins-shared-library') // global import from jenkins (we add it there in a global library)
+library identifier: 'jenkins-shared-library_UserAndCars@main', retriever: modernSCM(
+    [$class: 'GitSCMSource',
+    remote: 'https://github.com/SergeCodeFirst/jenkins-shared-library_UserAndCars.git',
+    credentialsId: 'github-credentials'
+    ])
+// @Library('jenkins-shared-library_UserAndCars')_
 
 pipeline {
     agent any
@@ -139,9 +144,4 @@ pipeline {
 // With jenkins shared library
 // =================================
 
-// @Library('jenkins-shared-library') // global import from jenkins (we add it there in a global library)
-// library identifier: 'jenkins-shared-library_UserAndCars@main', retriever: modernSCM(
-//     [$class: 'GitSCMSource',
-//     remote: 'https://github.com/SergeCodeFirst/jenkins-shared-library_UserAndCars.git',
-//     credentialsId: 'github-credentials'
-//     ])
+
