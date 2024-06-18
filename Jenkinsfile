@@ -7,7 +7,7 @@ pipeline {
     
     tools {
         dotnetsdk 'dotnet-7.0'
-        maven "maven-3.0"
+        maven "maven-3.9"
     }
     
     stages {
@@ -48,7 +48,7 @@ pipeline {
     
 //     tools {
 //         dotnetsdk 'dotnet-7.0'
-//         // maven 'maven-3.0'
+//         // maven 'maven-3.9'
 //         // nodejs 'node-14.0'
 //         // python 'Python-3.8'
 //     }
@@ -98,7 +98,7 @@ pipeline {
     
 //     tools {
 //         dotnetsdk 'dotnet-7.0'
-//         maven "maven-3.0"
+//         maven "maven-3.9"
 //     }
     
 //     stages {
