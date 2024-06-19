@@ -5,6 +5,8 @@
 //     credentialsId: 'github-credentials'
 //     ])
 
+
+
 @Library('jenkins-shared-library_UserAndCars')_
 
 pipeline {
@@ -27,7 +29,7 @@ pipeline {
         stage ("build docker image") {
             steps {
                 script {
-                    buildDockerImage()
+                    buildDockerImage 'sergevismok/demo-app:dotnet-app-3.0 .'
                 }
             }
         }
