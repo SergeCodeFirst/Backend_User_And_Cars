@@ -29,7 +29,7 @@ pipeline {
         stage ("build docker image") {
             steps {
                 script {
-                    buildDockerImage 'sergevismok/demo-app:dotnet-app-3.0 .'
+                    buildDockerImage 'sergevismok/demo-app:dotnet-app-3.0'
                 }
             }
         }
