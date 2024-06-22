@@ -5,8 +5,6 @@
 //     credentialsId: 'github-credentials'
 //     ])
 
-
-
 @Library('jenkins-shared-library_UserAndCars')_
 
 pipeline {
