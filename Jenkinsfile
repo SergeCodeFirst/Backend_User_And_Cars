@@ -26,10 +26,12 @@ pipeline {
             }
         }
         
-        stage ("build docker image") {
+        stage ("build and push docker image ") {
             steps {
                 script {
-                    buildDockerImage 'sergevismok/demo-app:dotnet-app-3.0'
+                    buildImage 'sergevismok/demo-app:dotnet-app-3.0'
+                    dockerLogin()
+                    dockerPush 'sergevismok/demo-app:dotnet-app-3.0'
                 }
             }
         }
