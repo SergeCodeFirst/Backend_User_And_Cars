@@ -40,7 +40,7 @@ esac
 echo "New version: $new_version"
 
 # Update the .csproj file with the new version
-sed -i -v "s/<Version>.*<\/Version>/<Version>$new_version<\/Version>/" "$project_file"
+sed -i.bak "s/<Version>.*<\/Version>/<Version>$new_version<\/Version>/" "$project_file"
 
 # # Commit the change
 # git add "$project_file"
