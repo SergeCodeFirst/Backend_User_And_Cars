@@ -21,10 +21,7 @@ pipeline {
         stage ("Increment app version") {
             steps {
                 script {
-                    echo 'incrementin app version ...'
-                    sh 'pwd'
-                    sh 'ls -l update_version.sh'
-                    sh 'ls -l backend.csproj'
+                    echo 'incrementing app version ...'
                     sh 'chmod +x update_version.sh'
                     sh 'chmod +rw backend.csproj'
                     sh './update_version.sh patch'
@@ -46,9 +43,9 @@ pipeline {
         stage ("build and push docker image ") {
             steps {
                 script {
-                    buildImage "sergevismok/demo-app:${IMAGE_NAME}"
+                    buildImage "sergevismok/demo-app:dotnet-app-${IMAGE_NAME}"
                     dockerLogin()
-                    dockerPush "sergevismok/demo-app:${IMAGE_NAME}"
+                    dockerPush "sergevismok/demo-app:dotnet-app-${IMAGE_NAME}"
                 }
             }
         }

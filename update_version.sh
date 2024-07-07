@@ -42,12 +42,6 @@ echo "New version: $new_version"
 # Update the .csproj file with the new version
 sed -i.bak "s/<Version>.*<\/Version>/<Version>$new_version<\/Version>/" "$project_file"
 
-# # Commit the change
-# git add "$project_file"
-# git commit -m "Update version to $new_version"
-# git push
-
-
 # How to USE: Run the following command in the terminal base on the number you want to update
 # Do not forget to add execute right 
 
