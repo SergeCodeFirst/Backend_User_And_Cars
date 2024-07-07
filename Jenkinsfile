@@ -18,6 +18,23 @@ pipeline {
     }
     
     stages {
+        stage ("Increment app version") {
+            steps {
+                script {
+                    echo 'incrementin app version ...'
+                    sh 'pwd'
+                    sh 'ls -l update_version.sh'
+                    sh 'ls -l backend.csproj'
+                    sh 'chmod +x update_version.sh'
+                    sh 'chmod +rw backend.csproj'
+                    sh './update_version.sh patch'
+                    def matcher = readFile('backend.csproj') =~ '<Version>(.+)</Version>'
+                    def version = matcher[0][1]
+                    env.IMAGE_NAME = "$version-$BUILD_NUMBER"
+                }
+            }
+        }
+        
         stage ("build Application Artifact") {
             steps {
                 script {
@@ -29,9 +46,9 @@ pipeline {
         stage ("build and push docker image ") {
             steps {
                 script {
-                    buildImage 'sergevismok/demo-app:dotnet-app-3.0'
+                    buildImage "sergevismok/demo-app:${IMAGE_NAME}"
                     dockerLogin()
-                    dockerPush 'sergevismok/demo-app:dotnet-app-3.0'
+                    dockerPush "sergevismok/demo-app:${IMAGE_NAME}"
                 }
             }
         }
