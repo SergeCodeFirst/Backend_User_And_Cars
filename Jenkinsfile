@@ -61,6 +61,7 @@ pipeline {
         stage ("commit version update") {
             steps {
                 script {
+                    // used PAT token ass a password in the Jenkins-push crdentials
                     withCredentials([usernamePassword(credentialsId: 'Jenkins-push', passwordVariable: 'PAT', usernameVariable: 'USER')]) {
                         sh 'git config --global user.email "jenkins@example.com"'
                         sh 'git config --global user.name "jenkins"'
