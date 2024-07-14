@@ -26,6 +26,7 @@ namespace backend.Controllers
         }
 
         // REGISTRATION PROCESS
+        // simulate trigger # 1
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
