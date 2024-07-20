@@ -24,15 +24,24 @@ namespace backend.Controllers
         //   ENDPOINTS
         // ->->->->->->->
 
-        // GET ALL CARS
+        // TEST IF API IS WORKING
+		// GET ALL CARS
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [HttpGet("testapi", Name ="TestApi")]
+		public async Task<ActionResult<ServiceResponse<List<GetCarDto>>>> GetAllCars()
+		{
+			var res = "Api is working and ready to go!!";
+			return Ok(res);
+		}
 
+        // GET ALL CARS
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpGet("getallcars", Name ="GetAllCars")]
 		public async Task<ActionResult<ServiceResponse<List<GetCarDto>>>> GetAllCars()
 		{
 			var res = await _carService.GetAllCars();
-
 			return Ok(res);
 		}
 
