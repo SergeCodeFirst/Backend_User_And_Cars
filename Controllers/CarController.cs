@@ -25,11 +25,10 @@ namespace backend.Controllers
         // ->->->->->->->
 
         // TEST IF API IS WORKING
-		// GET ALL CARS
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpGet("testapi", Name ="TestApi")]
-		public async Task<ActionResult<ServiceResponse<List<GetCarDto>>>> GetAllCars()
+		public string TestMyApi()
 		{
 			var res = "Api is working and ready to go!!";
 			return Ok(res);
