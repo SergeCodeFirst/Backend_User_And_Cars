@@ -26,12 +26,11 @@ namespace backend.Controllers
 
         // TEST IF API IS WORKING
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpGet("testapi", Name ="TestApi")]
 		public string TestMyApi()
 		{
-			var res = "Api is working and ready to go!!";
-			return Ok(res);
+			string res = "Api is working and ready to go!!";
+			return res;
 		}
 
         // GET ALL CARS
