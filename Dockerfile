@@ -3,7 +3,7 @@
 FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
 
 # Expose the port your application listens on
-EXPOSE 8080
+EXPOSE 80
 
 # Copy the published application from the host machine to the container
 COPY bin/Release/net7.0/publish /usr/app
