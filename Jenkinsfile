@@ -53,7 +53,12 @@ pipeline {
         stage ("deploy") {
             steps {
                 script {
-                    deployApp()
+                    def dockerCmd = 'docker run -p 5000:80 -d sergevismok/demo-app:dotnet-app-1.0.6-41'
+                    // deployApp()
+                    sshagent(['ec2-server-key']) {
+                        // some block
+                        sh "ssh -o StrictHostKeyChecking=no ec2-user@18.222.227.60 ${dockerCmd}"
+                    }
                 }
             }
         }
