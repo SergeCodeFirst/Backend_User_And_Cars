@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  # Web app
+  dotnet-app: # my app name 
+    image: sergevismok/demo-app:dotnet-app-1.0.6-41 # image name
+    ports:
+      - 5000:80 # port binding 5000 is from the ec2 intance and 80 is where the image is listening from
+  
+  # Postgress Database
+  postgres:
+    image: postgres:15
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRESS_PASSWORD=my-pwd
