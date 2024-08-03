@@ -56,7 +56,7 @@ pipeline {
                     // deployApp()
                     // def dockerCmd = 'docker run -p 5000:80 -d sergevismok/demo-app:dotnet-app-1.0.6-41'
                     // def dockerComposeCmd = 'docker-compose -f docker-compose.yaml up --detach'
-                    def shellCmd = "bash ./shellScript/server-cmds.sh"
+                    def shellCmd = "bash ./shellScript/server-cmds.sh ${IMAGE_NAME}"
                     sshagent(['ec2-server-key']) {
                         sh "scp docker-compose.yaml ec2-user@18.222.227.60:/home/ec2-user"
                         sh "scp -r shellScript ec2-user@18.222.227.60:/home/ec2-user"

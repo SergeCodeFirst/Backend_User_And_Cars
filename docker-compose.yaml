@@ -2,7 +2,7 @@ version: '3.8'
 services:
   # Web app
   dotnet-app: # my app name 
-    image: sergevismok/demo-app:dotnet-app-1.0.6-41 # image name
+    image: ${IMAGE_NAME} # image name
     ports:
       - 5000:80 # port binding 5000 is from the ec2 intance and 80 is where the image is listening from
   
